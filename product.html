@@ -236,17 +236,16 @@
   </header>
 
   <!-- ===== CARD GRID ===== -->
-  <main>
-      <article class="he-card hover-scale">
-        <a href="#" class="he-card-link">
-          <img class="he-card-image" src="https://picsum.photos/id/40/600/400" alt="City street with traffic and bright lights.">
-          <div class="he-card-content">
-            <h3 class="he-card-title">Scale Effect</h3>
-            <p class="he-card-description">Enlarges slightly to grab the user's attention.</p>
-          </div>
-        </a>
-      </article>
-    </div>
+  <main class="cards-grid-container">
+    <article class="he-card hover-scale">
+      <a href="#" class="he-card-link">
+        <img class="he-card-image" src="https://picsum.photos/id/40/600/400" alt="City street with traffic and bright lights.">
+        <div class="he-card-content">
+          <h3 class="he-card-title">Scale Effect</h3>
+          <p class="he-card-description">Enlarges slightly to grab the user's attention.</p>
+        </div>
+      </a>
+    </article>
   </main>
 
   <!-- ===== SCRIPT ===== -->
@@ -254,14 +253,13 @@
     document.addEventListener('DOMContentLoaded', function () {
       const navbarToggle = document.getElementById('navbarToggle');
       const navbarMenu = document.getElementById('navbarMenu');
-      if (navbarToggle && navbarMenu) {
-        navbarToggle.addEventListener('click', function () {
-          navbarToggle.classList.toggle('is-active');
-          navbarMenu.classList.toggle('is-active');
-          const isExpanded = navbarToggle.getAttribute('aria-expanded') === 'true';
-          navbarToggle.setAttribute('aria-expanded', !isExpanded);
-        });
-      }
+
+      navbarToggle.addEventListener('click', function () {
+        navbarToggle.classList.toggle('is-active');
+        navbarMenu.classList.toggle('is-active');
+        const isExpanded = navbarToggle.getAttribute('aria-expanded') === 'true';
+        navbarToggle.setAttribute('aria-expanded', !isExpanded);
+      });
 
       document.querySelectorAll('a.navbar__link').forEach(link => {
         if (link.textContent.trim().toLowerCase() === 'home') {
@@ -275,4 +273,3 @@
   </script>
 </body>
 </html>
-
