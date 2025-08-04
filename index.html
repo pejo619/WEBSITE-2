@@ -285,22 +285,30 @@
       const navbarToggle = document.getElementById('navbarToggle');
       const navbarMenu = document.getElementById('navbarMenu');
       if (navbarToggle && navbarMenu) {
-        navbarToggle.addEventListener('click', function () {
-          navbarToggle.classList.toggle('is-active');
-          navbarMenu.classList.toggle('is-active');
-          const isExpanded = navbarToggle.getAttribute('aria-expanded') === 'true';
-          navbarToggle.setAttribute('aria-expanded', !isExpanded);
+      navbarToggle.addEventListener('click', function () {
+      navbarToggle.classList.toggle('is-active');
+      navbarMenu.classList.toggle('is-active');
+      const isExpanded = navbarToggle.getAttribute('aria-expanded') === 'true';
+      navbarToggle.setAttribute('aria-expanded', !isExpanded);
         });
       }
     });
-        document.querySelectorAll('a.navbar__link').forEach(link => {
+      document.querySelectorAll('a.navbar__link').forEach(link => {
       if (link.textContent.trim().toLowerCase() === 'home') {
-        link.addEventListener('click', function (e) {
-        e.preventDefault();
-        window.location.href = 'index.html';
+      link.addEventListener('click', function (e) {
+      e.preventDefault();
+      window.location.href = 'index.html';
         });
       }
     });
+      const shopNowButton = document.querySelector('.cta-button');
+      if (shopNowButton) {
+      shopNowButton.addEventListener('click', function (e) {
+      e.preventDefault();
+      window.location.href = 'product.html';
+      });
+    }
+
   </script>
 </body>
 </html>
