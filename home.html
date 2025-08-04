@@ -3,18 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Playful & Animated Navbar (Definitive Version)</title>
+    <title>ProCab - Animated Navbar</title>
     <style>
-        /*
-        ========================================
-        CSS Custom Properties (Playful Theme)
-        ========================================
-        */
         :root {
             --color-background: #fff;
             --color-text: #2c3e50;
             --color-primary: #e74c3c;
-            --color-primary-darker: #c0392b; /* For reduced-motion hover */
+            --color-primary-darker: #c0392b;
             --color-secondary: #3498db;
             --color-highlight-bg: #f2f5f7;
             --font-family-sans-serif: "Nunito", system-ui, -apple-system, sans-serif;
@@ -40,11 +35,6 @@
         ul { list-style: none; margin: 0; padding: 0; }
         a { text-decoration: none; color: inherit; }
 
-        /*
-        ========================================
-        Navbar Base & Mobile Styles
-        ========================================
-        */
         .navbar {
             height: var(--navbar-height); display: flex; align-items: center;
             background-color: var(--color-background);
@@ -59,7 +49,6 @@
         .navbar__brand { font-size: 1.75rem; font-weight: var(--font-weight-bold); color: var(--color-primary); }
         .navbar__toggle { display: block; border: none; padding: 0.5rem; background: transparent; cursor: pointer; z-index: 1001; }
         .navbar__toggle .bar { display: block; width: 25px; height: 3px; margin: 5px auto; background-color: var(--color-text); border-radius: 3px; transition: all var(--transition-speed) var(--transition-bounce); }
-        /* These transforms are for the mobile menu 'hamburger' to 'X' animation */
         .navbar__toggle.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
         .navbar__toggle.is-active .bar:nth-child(2) { opacity: 0; }
         .navbar__toggle.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
@@ -71,22 +60,15 @@
         .navbar__link:hover, .navbar__link:focus { background-color: var(--color-highlight-bg); }
         :is(.navbar__toggle, .navbar__link):focus-visible { outline: 3px solid var(--color-secondary); outline-offset: 2px; }
 
-        /*
-        ========================================
-        Desktop Navbar Styles & Animations
-        ========================================
-        */
         @media (min-width: 768px) {
             .navbar__toggle { display: none; }
             .navbar__menu { display: flex; flex-direction: row; align-items: center; position: static; width: auto; background: none; border: none; box-shadow: none; }
             .navbar__list { display: flex; align-items: center; gap: 0.5rem; }
             .navbar__link { padding: 0.5rem 1rem; position: relative; }
             
-            /* General hover rule that applies to non-CTA links. */
             .navbar__link:not(.navbar__link--cta):hover, 
             .navbar__link:not(.navbar__link--cta):focus { background-color: transparent; }
-            
-            /* Underline animation */
+
             .navbar__link:not(.navbar__link--cta)::after {
                 content: ''; position: absolute; bottom: 0; left: 50%; width: 0;
                 height: 3px; background-color: var(--color-secondary);
@@ -94,7 +76,6 @@
             }
             .navbar__link:not(.navbar__link--cta):hover::after, .navbar__link:not(.navbar__link--cta):focus::after { width: 100%; }
 
-            /* CTA Button */
             .navbar__item--cta { margin-left: 1rem; }
             .navbar__link--cta {
                 background-color: var(--color-primary); color: #fff;
@@ -108,14 +89,10 @@
                 transform: scale(1.1);
             }
         }
-        
-        /* Reduced Motion Accessibility */
+
         @media (prefers-reduced-motion: reduce) {
-            /* Disable animations */
             .navbar__toggle .bar, .navbar__link:not(.navbar__link--cta)::after, .navbar__link--cta { transition: none; }
-            /* Instantly show underline for non-CTA links on hover */
             .navbar__link:not(.navbar__link--cta):hover::after, .navbar__link:not(.navbar__link--cta):focus::after { width: 100%; }
-            /* Disable scaling on CTA and just change color for feedback */
             .navbar__link--cta:hover, .navbar__link--cta:focus {
                 transform: none;
                 background-color: var(--color-primary-darker);
@@ -126,16 +103,15 @@
 <body>
     <header class="navbar">
         <div class="navbar__container">
-            <a href="#" class="navbar__brand">Wobble</a>
+            <a href="#" class="navbar__brand">ProCab</a>
             <button class="navbar__toggle" id="navbarToggle" aria-label="Toggle navigation" aria-controls="navbarMenu" aria-expanded="false">
                 <span class="bar"></span><span class="bar"></span><span class="bar"></span>
             </button>
             <nav id="navbarMenu" class="navbar__menu" role="navigation" aria-labelledby="navbarToggle">
                 <ul class="navbar__list">
-                    <li class="navbar__item"><a href="#" class="navbar__link">Work</a></li>
-                    <li class="navbar__item"><a href="#" class="navbar__link">Studio</a></li>
-                    <li class="navbar__item"><a href="#" class="navbar__link">Careers</a></li>
-                    <li class="navbar__item navbar__item--cta"><a href="#" class="navbar__link navbar__link--cta">Get in Touch</a></li>
+                    <li class="navbar__item"><a href="#" class="navbar__link">Home</a></li>
+                    <li class="navbar__item"><a href="#" class="navbar__link">Product</a></li>
+                    <li class="navbar__item navbar__item--cta"><a href="#" class="navbar__link navbar__link--cta">Contact Us</a></li>
                 </ul>
             </nav>
         </div>
@@ -160,5 +136,8 @@
             }
         });
     </script>
+</body>
+</html>
+
 </body>
 </html>
